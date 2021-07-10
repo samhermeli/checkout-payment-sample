@@ -1,4 +1,6 @@
 const express = require("express");
+const https = require('https');
+const fs = require('fs');
 const app = express();
 const mercadopago = require("mercadopago");
 
@@ -9,6 +11,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("client/"));
 
+const options = {
+	key: fs.readFileSync('localhost.key', 'utf8'),
+   cert: fs.readFileSync('localhost.crt', 'utf8')
+ };
 
 app.get("/", function (req, res) {
   res.status(200).sendFile("/client/index.html", { root: __dirname });
@@ -17,7 +23,6 @@ app.get("/", function (req, res) {
 }); 
 
 app.post("/create_preference", (req, res) => {
-
 	let preference = {
 		items: [{
 			title: req.body.description,
@@ -29,11 +34,13 @@ app.post("/create_preference", (req, res) => {
 			"failure": "http://localhost:8080/feedback",
 			"pending": "http://localhost:8080/feedback"
 		},
-		auto_return: 'approved',
+		auto_return: 'approved'
 	};
 
 	mercadopago.preferences.create(preference)
 		.then(function (response) {
+			console.log("--->Response Api");
+			console.log(response);
 			res.json({id :response.body.id})
 		}).catch(function (error) {
 			console.log(error);
@@ -48,6 +55,7 @@ app.get('/feedback', function(request, response) {
 	})
 });
 
-app.listen(8080, () => {
-  console.log("The server is now running on Port 8080");
-});
+
+https.createServer(options, app).listen(8080, () => {
+	console.log("The server is now running on Port 8080");
+})
