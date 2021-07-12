@@ -3,9 +3,12 @@ const https = require('https');
 const fs = require('fs');
 const app = express();
 const mercadopago = require("mercadopago");
-
-//REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://developers.mercadopago.com/panel/credentials
-mercadopago.configurations.setAccessToken("TEST-6255502893512254-070917-2178f482009e8dc6f819b9e929692a08-787997534"); 
+//APP_USR-4785898098059790-042020-f88a2d93925ea48b011958f79bd02168-548158864
+//TEST-6255502893512254-070917-2178f482009e8dc6f819b9e929692a08-787997534
+// Add Your credentials
+mercadopago.configure({
+	access_token: 'APP_USR-7176729971160310-051313-de5d19de92d7df4a25ad7a4380d1a7c4-758771883'
+  });
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -30,9 +33,9 @@ app.post("/create_preference", (req, res) => {
 			quantity: Number(req.body.quantity),
 		}],
 		back_urls: {
-			"success": "http://localhost:8080/feedback",
-			"failure": "http://localhost:8080/feedback",
-			"pending": "http://localhost:8080/feedback"
+			"success": "https://localhost:8080/feedback",
+			"failure": "https://localhost:8080/feedback",
+			"pending": "https://localhost:8080/feedback"
 		},
 		auto_return: 'approved'
 	};
