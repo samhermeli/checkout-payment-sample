@@ -44,6 +44,8 @@ app.post("/create_preference", (req, res) => {
 		.then(function (response) {
 			console.log("--->Response Api");
 			console.log(response);
+			global.id = response.body.id;
+			console.log("el preference es:" +response.body.id);
 			res.json({id :response.body.id})
 		}).catch(function (error) {
 			console.log(error);

@@ -7,8 +7,8 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://www.mercadopago.cl/integrations/v1/web-payment-checkout.js">
-</script>
+    <!--<script type="text/javascript" src="js/sdk.js" defer></script>-->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
     <script type="text/javascript" src="js/index.js" defer></script>
   </head>
   <body>
@@ -55,8 +55,10 @@
                   <h3>Cart</h3>
                   <div class="summary-item"><span class="text">Subtotal</span><span class="price" id="cart-total"></span></div>
                   <button class="btn btn-primary btn-lg btn-block" id="checkout-btn">Checkout</button>
+
                 </div>
               </div>
+             
             </div>
           </div>
         </div>
@@ -80,7 +82,8 @@
             <div class="payment-details">
               <div class="form-group col-sm-12">
                 <br>      
-                <div id="button-checkout">
+                <!--<div id="button-checkout">-->
+                  <div class="col-md-12 col-lg-4 cho-container"></div>
                 </div>                 
                 <br>
                 <a id="go-back">
