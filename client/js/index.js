@@ -1,6 +1,6 @@
 // Agrega credenciales de SDK
-const mp = new MercadoPago('APP_USR-845636e9-a146-48a4-b35a-21255054b1fa', {
-  locale: 'es-AR'
+const mp = new MercadoPago('APP_USR-f3d7f40e-2d40-441e-bef0-4a8996b14129', {
+  locale: 'es-CL'
 });
 
 
