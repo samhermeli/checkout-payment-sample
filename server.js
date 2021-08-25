@@ -3,12 +3,23 @@ const https = require('https');
 const fs = require('fs');
 const app = express();
 const mercadopago = require("mercadopago");
+
+mercadopago.configure({
+	access_token: 'APP_USR-7897004636694682-072916-34a4d22205dd2f3071e9dd0308fb731d-798913759'
+  });
+
+
+
 //APP_USR-4785898098059790-042020-f88a2d93925ea48b011958f79bd02168-548158864
 //TEST-6255502893512254-070917-2178f482009e8dc6f819b9e929692a08-787997534
 // Add Your credentials
-mercadopago.configure({
-	access_token: 'APP_USR-6255502893512254-070917-4a37a530e7d437b6ce717670b142202c-787997534'
-  });
+//mercadopago.configure({
+//	access_token: 'APP_USR-6255502893512254-070917-4a37a530e7d437b6ce717670b142202c-787997534'
+//  });
+
+  /*mercadopago.configure({
+	access_token: 'TEST-2988459214880543-072221-a712adc93ad90d3f2f14103993cbcd00-724484980'
+  });*/
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

@@ -1,9 +1,17 @@
 // Agrega credenciales de SDK
-const mp = new MercadoPago('APP_USR-f3d7f40e-2d40-441e-bef0-4a8996b14129', {
-  locale: 'es-CL'
+
+
+const mp = new MercadoPago('APP_USR-be48f1a1-5904-45b1-8e5e-a84fab037e70', {
+    locale: 'es-CL'
 });
-
-
+//My Seller
+//const mp = new MercadoPago('APP_USR-f3d7f40e-2d40-441e-bef0-4a8996b14129', {
+//  locale: 'es-CL'
+//});
+//My cuenta real usuarios de test
+/*const mp = new MercadoPago('TEST-b03fe9b3-8b2c-489c-95b0-81cb1e48a4d9', {
+  locale: 'es-CL'
+});*/
 
   // Inicializa el checkout
   /*mp.checkout({
